@@ -10,6 +10,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 //*Notes: turning off confirmation email for every registration
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Add services to the container.
@@ -57,7 +58,7 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 
-//Opens api when you start project 
+//Opens api everytime you start run project 
 //app.UseSwaggerUI(options =>
 //{
 //    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
