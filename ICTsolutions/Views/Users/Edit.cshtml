@@ -1,6 +1,5 @@
-﻿@*
-@using ICTsolutions.Areas.Identity.Data
-@using ICTsolutions.Core.ViewModels;*@
+﻿@using ICTsolutions.Areas.Identity.Data
+@using ICTsolutions.Core.ViewModels;
 
 
 @*binding model to applicationuser to be able to acces data*@
@@ -53,21 +52,30 @@
                 <h4 class="mb-3">Roles</h4>
 
                 <div class="my-3">
-                   
 
-                
+                    @for (int i = 0; i < Model.Roles.Count(); i++)
+                    {
+                        <div class="form-check">
+                            @*code from user controller changed to be able to apply [index]*@
+                            @Html.CheckBoxFor(c => Model.Roles[i].Selected)
+                            @Html.HiddenFor(h => Model.Roles[i].Value)
 
+                            @Html.LabelFor(l => Model.Roles[i].Selected, Model.Roles[i].Text, new {@class="from-check-label"})
+                            @Html.HiddenFor(h => Model.Roles[i].Text)
+                        </div>
+
+                    }
 
                     @*the following code is no longer needed due to the for loop in the code from above*@
-                    @*
-                @foreach (var role in Model.Roles)
+                    
+                @*@foreach (var role in Model.Roles)
                 {
                 <div class="form-check">
                 <input id="@role.Value" name="usertype" type="checkbox" class="form-check-input" checked="@role.Selected" required="" />
                 <label class="form-check-label" asp-for="@role.Value">@role.Text</label>
                 </div>
-                }
-                *@
+                }*@
+                
                 </div>
 
                 <hr class="my-4" />

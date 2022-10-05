@@ -9,5 +9,7 @@ namespace ICTsolutions.Core.Repositories
 
         //method that updates database
         ApplicationUser GetUser(string id);
+
+        ApplicationUser UpdateUser(ApplicationUser user);
     }
 }

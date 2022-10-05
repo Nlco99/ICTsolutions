@@ -1,4 +1,6 @@
 ﻿using ICTsolutions.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ICTsolutions.Core.ViewModels
 {
@@ -6,6 +8,6 @@ namespace ICTsolutions.Core.ViewModels
     {
         public ApplicationUser User { get; set; }
 
-        public IEnumerable<ApplicationRole> Roles { get; set; }
+        public IList<SelectListItem> Roles { get; set; }
     }
 }

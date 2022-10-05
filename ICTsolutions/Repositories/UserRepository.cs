@@ -23,5 +23,14 @@ namespace ICTsolutions.Repositories
         {
             return _context.Users.FirstOrDefault(u => u.Id == id);
         }
+
+        public ApplicationUser UpdateUser(ApplicationUser user)
+        {
+            _context.Update(user);
+            _context.SaveChanges();
+            
+            return user;
+
+        }
     }
 }
