@@ -13,13 +13,13 @@ namespace ICTsolutions.Controllers
             return View();
         }
 
-        [Authorize(Policy = Constants.Policies.RequireAdmin)]
+        [Authorize(Policy = Constants.Policies.RequireManager)]
         public IActionResult Manager()
         {
             return View();
         }
 
-        [Authorize(Policy = "RequireAdmin")]
+        //[Authorize(Policy = "RequireAdmin")]
         //removing magic string by adding a class Constants 
         [Authorize(Roles = $"{Constants.Roles.Administrator}, {Constants.Roles.Manager}")]
         public IActionResult Admin()

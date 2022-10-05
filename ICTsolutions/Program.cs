@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ICTsolutions.Areas.Identity.Data;
+using ICTsolutions.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
@@ -76,8 +77,8 @@ void AddAuthorizationPolicies()
 
     builder.Services.AddAuthorization(options =>
     {
-        options.AddPolicy("RequireAdmin", policy => policy.RequireClaim("Administrator"));
-        options.AddPolicy("RequireManager", policy => policy.RequireClaim("Manager"));
+        options.AddPolicy(Constants.Policies.RequireAdmin, policy => policy.RequireRole(Constants.Roles.Administrator));
+        options.AddPolicy(Constants.Policies.RequireManager, policy => policy.RequireRole(Constants.Policies.RequireManager));
     });
 
 }
