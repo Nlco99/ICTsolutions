@@ -1,4 +1,5 @@
 ﻿using ICTsolutions.Core.IRepositories;
+using ICTsolutions.Core.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ICTsolutions.Controllers
@@ -22,9 +23,12 @@ namespace ICTsolutions.Controllers
         {
             var user = _unitOfWork.User.GetUser(id);
 
-            return Content(user.FirstName);
+            var vm = new EditUserViewModel
+            {
+                User = user
+            };
+
+            return View(vm);
         }
-
-
     }
 }
