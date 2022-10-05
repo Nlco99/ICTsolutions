@@ -1,8 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@*@using APSNetCoreIdentityCustom.Areas.Identity.Data*@
+@using ICTsolutions.Areas.Identity.Data
 
-@*@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager*@
+@inject SignInManager<ApplicationUser> SignInManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,27 +30,27 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
-                        @*@if (SignInManager.IsSignedIn(User))
+                        @if (SignInManager.IsSignedIn(User))
                         {
-                           
-                        }*@
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Manager">Manager</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Admin">Admin</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Manager">Manager</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Admin">Admin</a>
+                            </li>
 
 
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Projects" asp-action="Index">Projecten</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Clients" asp-action="Index">Clients</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Projects" asp-action="Index">Projecten</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Clients" asp-action="Index">Clients</a>
+                            </li>
+                        }
+                       
 
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
