@@ -17,7 +17,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 builder.Services.AddControllersWithViews();
 
 #region
-AddAuthorizationPolicies(builder.Services);
+AddAuthorizationPolicies();
 
 #endregion
 
@@ -67,10 +67,17 @@ app.MapRazorPages();
 
 app.Run();
 
-void AddAuthorizationPolicies(IServiceCollection services)
+void AddAuthorizationPolicies()
 {
-    services.AddAuthorization(options =>
+    builder.Services.AddAuthorization(options =>
     {
         options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));
     });
+
+    builder.Services.AddAuthorization(options =>
+    {
+        options.AddPolicy("RequireAdmin", policy => policy.RequireClaim("Administrator"));
+        options.AddPolicy("RequireManager", policy => policy.RequireClaim("Manager"));
+    });
+
 }

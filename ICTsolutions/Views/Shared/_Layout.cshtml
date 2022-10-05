@@ -1,5 +1,5 @@
-﻿@*@using Microsoft.AspNetCore.Identity
-@using APSNetCoreIdentityCustom.Areas.Identity.Data
+﻿@using Microsoft.AspNetCore.Identity
+@*@using APSNetCoreIdentityCustom.Areas.Identity.Data
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager*@
@@ -49,9 +49,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Admin">Admin</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Users</a>
-                        </li>
+                        
 
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Projects" asp-action="Index">Projecten</a>
