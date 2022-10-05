@@ -1,17 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ICTsolutions.Core.IRepositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ICTsolutions.Controllers
 {
     public class UsersController : Controller
     {
-        public IActionResult Index()
+        private readonly IUnitOfWork _unitOfWork;
+
+        public UsersController(IUnitOfWork unitOfWork)
         {
-            return View();
+            _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Edit()
+        public IActionResult Index()
         {
-            return View();
+            var users = _unitOfWork.User.GetUsers();
+            return View(users);
+        }
+
+        public IActionResult Edit(string id)
+        {
+            var user = _unitOfWork.User.GetUser(id);
+
+            return Content(user.FirstName);
         }
 
 

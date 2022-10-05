@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ICTsolutions.Areas.Identity.Data;
 using ICTsolutions.Core;
+using ICTsolutions.Repositories;
+using ICTsolutions.Core.Repositories;
+using ICTsolutions.Core.IRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
@@ -18,11 +21,13 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 builder.Services.AddControllersWithViews();
 
 #region
+
 AddAuthorizationPolicies();
 
 #endregion
 
 
+AddScoped();
 
 //Adding Swagger
 builder.Services.AddSwaggerGen();
@@ -81,4 +86,11 @@ void AddAuthorizationPolicies()
         options.AddPolicy(Constants.Policies.RequireManager, policy => policy.RequireRole(Constants.Policies.RequireManager));
     });
 
+}
+
+void AddScoped()
+{
+    //IUserRepository is mostly used inside this project and UserRepository is mostly used in separate project or API and returns data
+    builder.Services.AddScoped<IUserRepository, UserRepository>();
+    builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 }

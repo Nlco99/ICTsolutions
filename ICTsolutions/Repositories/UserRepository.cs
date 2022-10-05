@@ -14,10 +14,14 @@ namespace ICTsolutions.Repositories
             _context = context;
         }
 
-
         public ICollection<ApplicationUser> GetUsers()
         {
             return _context.Users.ToList();
+        }
+
+        public ApplicationUser GetUser(string id)
+        {
+            return _context.Users.FirstOrDefault(u => u.Id == id);
         }
     }
 }
