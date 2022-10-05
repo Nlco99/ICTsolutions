@@ -1,0 +1,126 @@
+﻿@model ICTsolutions.Models.Project
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                <h4>Project</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-lg-2">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd class="col-lg-10">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt class="col-md-2">
+                        @Html.DisplayNameFor(model => model.ClientName)
+                    </dt>
+                    <dd class="col-md-10">
+                        @Html.DisplayFor(model => model.ClientName)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.ProjectManager)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.ProjectManager)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.amountMembers)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.amountMembers)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Sources)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Sources)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.ProgramingLanguage)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.ProgramingLanguage)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Payment)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Payment)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Type)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Type)
+                    </dd>
+                </dl>
+                
+            </div>
+            <div class="col">
+                <h4>Clients</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        Name
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(modelItem => Model.projects.Name)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Email
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(modelItem => Model.projects.Email)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Company Name
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(modelItem => Model.projects.CompanyName)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Phonenumber
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(modelItem => Model.projects.Phonenumber)
+                    </dd>
+                    <dt>
+                        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                        <a asp-action="Details" asp-route-id="@Model.Id">Details</a>
+                        <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                    </dt>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="container text-right">
+    <div class="row">
+        <div class="col">
+            <a asp-action="Edit" asp-route-id="@Model?.Id">Edits</a>
+        </div>
+        <div class="col">
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+

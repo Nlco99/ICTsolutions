@@ -1,0 +1,102 @@
+﻿@model ICTsolutions.Models.Client
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phonenumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phonenumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@*                                                      ADDING PROJECTS TO CLIENT*@
+@*
+<div class="col">
+    <h4>Project</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-lg-2">
+            @Html.DisplayFor(modelItem => Model.projects.name)
+        </dt>
+        <dd class="col-lg-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProjectManager)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProjectManager)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.amountMembers)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.amountMembers)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sources)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sources)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProgramingLanguage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProgramingLanguage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Payment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Payment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+    </dl>
+
+</div>*@

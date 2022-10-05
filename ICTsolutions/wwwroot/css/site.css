@@ -1,0 +1,28 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /*margin-bottom: 60px;*/
+   /* background-color: #CED0E4;*/
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.div-with-bg {
+}
