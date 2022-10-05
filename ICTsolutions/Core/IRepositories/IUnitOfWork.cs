@@ -6,7 +6,7 @@ namespace ICTsolutions.Core.IRepositories
 {
     public interface IUnitOfWork
     {
-        IUserRepository User { get; }
+        IUsersRepository User { get; }
 
     }
 }

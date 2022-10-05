@@ -2,7 +2,7 @@
 
 namespace ICTsolutions.Core.Repositories
 {
-    public interface IUserRepository
+    public interface IUsersRepository
     {
         ICollection<ApplicationUser> GetUsers();
 

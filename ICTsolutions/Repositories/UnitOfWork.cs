@@ -6,11 +6,11 @@ namespace ICTsolutions.Repositories
     public class UnitOfWork : IUnitOfWork
     {
 
-        public IUserRepository User { get; }
+        public IUsersRepository User { get; }
 
 
         //implement constructor - inject IUserRepository and initialise variable (user)
-        public UnitOfWork(IUserRepository user)
+        public UnitOfWork(IUsersRepository user)
         {
             User = user;
         }

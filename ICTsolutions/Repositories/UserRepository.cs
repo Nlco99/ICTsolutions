@@ -5,7 +5,7 @@ using ICTsolutions.Core.Repositories;
 //Repository that returns all the users
 namespace ICTsolutions.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : IUsersRepository
     {
         public ApplicationDbContext _context;
 

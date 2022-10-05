@@ -91,6 +91,6 @@ void AddAuthorizationPolicies()
 void AddScoped()
 {
     //IUserRepository is mostly used inside this project and UserRepository is mostly used in separate project or API and returns data
-    builder.Services.AddScoped<IUserRepository, UserRepository>();
+    builder.Services.AddScoped<IUsersRepository, UserRepository>();
     builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 }
