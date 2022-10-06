@@ -32,21 +32,26 @@ namespace ICTsolutions.Controllers
             //you can test with a break point here to see which roles the singin user has
             var userRoles = await _signInManager.UserManager.GetRolesAsync(user);
 
-            var roleItems = new List<SelectListItem>();
+            //var roleItems = new List<SelectListItem>();
 
-            foreach (var role in roles)
-            {
-                //loop inside the user roles and checks if the role exists
-                var hasRole = userRoles.Any(ur => ur.Contains(role.Name));
+            //foreach (var role in roles)
+            //{
+            //    //loop inside the user roles and checks if the role exists
+            //    var hasRole = userRoles.Any(ur => ur.Contains(role.Name));
 
-                //its set to hasRole so when you open the edit page you can see the current role before you change it
-                roleItems.Add(new SelectListItem(role.Name, role.Id, hasRole));
-            }
+            //    //its set to hasRole so when you open the edit page you can see the current role before you change it
+            //    roleItems.Add(new SelectListItem(role.Name, role.Id, hasRole));
+            //}
 
+            var roleItems = roles.Select(role =>
+                new SelectListItem(
+                        role.Name,
+                        role.Id,
+                        userRoles.Any(ur => ur.Contains(role.Name)))).ToList();
 
             var vm = new EditUserViewModel
             {
-                User = user,
+                Users = user,
                 Roles = roleItems
             };
 
@@ -59,7 +64,7 @@ namespace ICTsolutions.Controllers
         [HttpPost]
         public async Task<IActionResult> OnPostAsync(EditUserViewModel data)
         {
-            var user = _unitOfWork.User.GetUser(data.User.Id);
+            var user = _unitOfWork.User.GetUser(data.Users.Id);
             if (user == null)
             {
                 return NotFound();
@@ -93,9 +98,9 @@ namespace ICTsolutions.Controllers
                 }
             }
 
-            user.FirstName = data.User.FirstName;
-            user.LastName = data.User.LastName;
-            user.Email = data.User.Email;
+            user.FirstName = data.Users.FirstName;
+            user.LastName = data.Users.LastName;
+            user.Email = data.Users.Email;
 
             //updating database
             _unitOfWork.User.UpdateUser(user);

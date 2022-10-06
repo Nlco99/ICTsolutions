@@ -123,11 +123,11 @@ namespace ICTsolutions.Areas.Identity.Pages.Account
                 var result = await _signInManager.CheckPasswordSignInAsync(user, Input.Password, false);
                 if (result.Succeeded)
                 {
-                    var claims = new List<Claim>
+                    var claims = new List<Claim>();
                     {
-                        new Claim("amr", "pwd")
+                        new Claim("amr", "pwd");
 
-                    };
+                    }
 
                     var roles = await _signInManager.UserManager.GetRolesAsync(user);
 
@@ -144,7 +144,11 @@ namespace ICTsolutions.Areas.Identity.Pages.Account
                     return LocalRedirect(returnUrl);
                 }
 
-
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation("User logged in.");
+                    return LocalRedirect(returnUrl);
+                }
                 if (result.RequiresTwoFactor)
                 {
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });

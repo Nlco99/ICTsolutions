@@ -1,4 +1,8 @@
-﻿@model IEnumerable<ICTsolutions.Models.Project>
+﻿@using ICTsolutions.Areas.Identity.Data
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<ICTsolutions.Models.Project>
+
+@inject SignInManager<ApplicationUser> SignInManager
 
 @{
     ViewData["Title"] = "Index";
@@ -7,9 +11,12 @@
 
 <h1>Index</h1>
 
+
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 
 <p>
     <a asp-action="GetAvailableProjects"> Available Projects</a>
@@ -84,13 +91,38 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Type)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                
-            </td>
+
+            @*search for signinmanager specific roles*@
+            
+@*
+                @if (SignInManager.IsSignedIn(User) && SignInManager.UserManager.rol)
+                {
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                }
+
+                else 
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        @*<a asp-action="Details" asp-route-id="@item.Id">Details</a>*@
+                        @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                }*@
+
+
+               <td>
+                   <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+               </td>
+
+               
+
         </tr>
+
+
 }
     </tbody>
 </table>

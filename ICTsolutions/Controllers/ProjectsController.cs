@@ -161,7 +161,21 @@ namespace ICTsolutions.Controllers
             return View("Index", await _context.projects.Where(project => project.Status == StatusEnum.Available).ToListAsync());
         }
 
+        //[HttpPost, ActionName("Join")]
+        //public async Task<IActionResult> JoinProject(int id, [Bind("Id,Name,Client,ProjectManager,amountMembers,Sources,ProgramingLanguage,Payment,Status,Type")] Project project)
+        //{
+        //    if (id == null || _context.projects == null)
+        //    {
+        //        return NotFound();
+        //    }
 
+        //    //var project = await _context.projects.FindAsync(id);
+        //    //if (project == null)
+        //    //{
+        //    //    return NotFound();
+        //    //}
+        //    return View(project);
+        //}
 
 
 

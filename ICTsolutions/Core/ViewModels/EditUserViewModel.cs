@@ -6,7 +6,7 @@ namespace ICTsolutions.Core.ViewModels
 {
     public class EditUserViewModel
     {
-        public ApplicationUser User { get; set; }
+        public ApplicationUser Users { get; set; }
 
         public IList<SelectListItem> Roles { get; set; }
     }
