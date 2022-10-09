@@ -10,25 +10,27 @@
 }
 
 
+
 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
 {
     
-    <p>
-        <a asp-action="Create" type="button" class="btn btn-primary">Create New</a>
-        @*<button type="button" class="btn btn-primary" asp-action="Create">Create New</button>*@
-    </p>
+    <div class="createNewProjectButton">
+        <a asp-action="Create" type="button" class="btn btn-outline-primary">Create New</a>
+    </div>
 }
 
 
+@*<button id="button1" style="display:block" onclick="document.getElementById('button2').style.display = 'block'; this.style.display = 'none';">Button 1</button>
+<button id="button2" style="display:none;" onclick="document.getElementById('button1').style.display = 'block'; this.style.display = 'none';">Button 2</button>
+*@
 
-
-
-<p>
-    <a asp-action="GetAvailableProjects"> Available Projects</a>
-</p>
+<div class="availableButton">
+    <a asp-action="GetAvailableProjects" type="button" id="availableButton" class="btn btn-outline-info">Available Projects</a>
+    
+</div>
 
 <p> 
-    <a asp-action="Index">Back to Projects page</a>
+    <a asp-action="Index" type="button" id="backToPojectButton" class="btn btn-outline-dark">Back to Projects page</a>
 </p>
 
 
@@ -102,17 +104,17 @@
 
                 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
                 {
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <td class="btn-group" role="group" aria-label="Side buttons">
+                        <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-warning">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" type="button" class="btn btn-info">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-danger">Delete</a>
                     </td>                   
                 }
 
                 else 
                 {
                      <td>
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" type="button" class="btn btn-info">Details</a>
                     </td>
                 }
         </tr>

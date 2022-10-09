@@ -14,8 +14,7 @@ html {
 }
 
 body {
-    /*margin-bottom: 60px;*/
-   /* background-color: #CED0E4;*/
+  
 }
 
 * {
@@ -24,5 +23,25 @@ body {
     font-weight: 600;
 }
 
-.div-with-bg {
+.homepageBackground {
+    background-color: red;
+    /*margin: auto;
+    padding: 0;*/
+    /*background-image: url('../../Images/homepageBg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;*/
+}
+
+.availableButton{
+    margin: 10px 0px 0px 0px;
+}
+
+.joinProjectButton {
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+}
+
+.createNewProjectButton {
+    margin: 10px 0px 0px 0px;
 }
