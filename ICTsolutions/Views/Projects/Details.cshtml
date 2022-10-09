@@ -75,6 +75,9 @@
                 </dl>
                 
             </div>
+
+
+
             <div class="col">
                 <h4>Clients</h4>
                 <hr />
@@ -114,6 +117,67 @@
                     
                 </dl>
             </div>
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Client Name
+                        </th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Users)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            
+                           
+
+                            @*search for signinmanager specific roles*@
+
+
+                            @if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
+                            {
+                                <td class="btn-group" role="group" aria-label="Side buttons">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-warning">Edit</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" type="button" class="btn btn-info">Details</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-danger">Delete</a>
+                                </td>
+                            }
+
+                            else
+                            {
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.Id" type="button" class="btn btn-info">Details</a>
+                                </td>
+                            }
+                        </tr>
+
+
+                    }
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     </div>
 </div>

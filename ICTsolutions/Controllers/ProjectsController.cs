@@ -35,7 +35,7 @@ namespace ICTsolutions.Controllers
                 return NotFound();
             }
 
-            var project = await _context.projects.Include(p => p.projects)
+            var project = await _context.projects.Include(p => p.projects).Include(m => m.Users)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (project == null)
             {
@@ -163,17 +163,33 @@ namespace ICTsolutions.Controllers
         }
 
 
-        public IActionResult Join()
+        //public IActionResult Join()
+        //{
+        //    return View();
+        //}
+
+        [HttpPost]
+        public async Task<IActionResult> Join(int? id)
         {
-            return View();
+            if (id == null || _context.projects == null)
+            {
+                return NotFound();
+            }
+
+            var project = await _context.projects.Include(p => p.projects).Include(m => m.Users)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            return View(project);
         }
-
-
 
         //[HttpPost, ActionName("Join")]
         //public async Task<IActionResult> JoinProject(string FirstName, string LastName)
         //{
-            
+
         //    return View();
         //}
 

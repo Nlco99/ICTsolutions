@@ -23,16 +23,6 @@ body {
     font-weight: 600;
 }
 
-.homepageBackground {
-    background-color: red;
-    /*margin: auto;
-    padding: 0;*/
-    /*background-image: url('../../Images/homepageBg.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;*/
-}
-
 .availableButton{
     margin: 10px 0px 0px 0px;
 }
@@ -45,3 +35,4 @@ body {
 .createNewProjectButton {
     margin: 10px 0px 0px 0px;
 }
+
