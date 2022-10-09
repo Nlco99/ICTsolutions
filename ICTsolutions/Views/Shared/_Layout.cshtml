@@ -56,7 +56,7 @@
                                 <a class="nav-link text-light" asp-area="" asp-controller="Clients" asp-action="Index">Clients</a>
                             </li>
                         }
-                        else 
+                        @if (User.IsInRole("User"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
