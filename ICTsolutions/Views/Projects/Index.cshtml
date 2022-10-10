@@ -13,7 +13,6 @@
 
 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
 {
-    
     <div class="createNewProjectButton">
         <a asp-action="Create" type="button" class="btn btn-outline-primary">Create New</a>
     </div>
@@ -26,7 +25,6 @@
 
 <div class="availableButton">
     <a asp-action="GetAvailableProjects" type="button" id="availableButton" class="btn btn-outline-info">Available Projects</a>
-    
 </div>
 
 <p> 

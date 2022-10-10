@@ -163,13 +163,13 @@ namespace ICTsolutions.Controllers
         }
 
 
-        //public IActionResult Join()
-        //{
-        //    return View();
-        //}
+        public IActionResult Join()
+        {
+            return View();
+        }
 
         [HttpPost]
-        public async Task<IActionResult> Join(int? id)
+        public async Task<IActionResult> JoinMembers(int? id)
         {
             if (id == null || _context.projects == null)
             {
